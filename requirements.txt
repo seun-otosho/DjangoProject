@@ -1,0 +1,12 @@
+django
+
+django-allauth
+django-rest-auth
+
+djangorestframework
+markdown
+django-filter
+
+#dev
+pylint
+
