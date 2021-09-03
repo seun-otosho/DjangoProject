@@ -1,0 +1,24 @@
+<div class="card">
+  <table class="table table-striped m-0">
+    <thead>
+      <tr>
+        <th class="border-0" scope="col">Name</th>
+{#        <th class="border-0" scope="col">Incomplete Tasks</th>#}
+{#        <th class="border-0" scope="col">Complete Tasks</th>#}
+      </tr>
+    </thead>
+    <tbody>
+      {% for institution in object_list %}
+      <tr>
+        <th class="border-0" scope="row">
+          <a href="{{ institution.get_absolute_url }}">
+            {{ institution.name }}
+          </a>
+        </th>
+{#        <td class="border-0">{{ institution.complete_tasks.count }}</td>#}
+{#        <td class="border-0">{{ institution.incomplete_tasks.count }}</td>#}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

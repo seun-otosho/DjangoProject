@@ -6,8 +6,8 @@ from apps.members.models import Institution
 
 
 class InstitutionAdmin(admin.ModelAdmin):
-    fields = ('name', 'old_name', )
-    list_display = ('name', 'old_name', 'deleted_at', )
+    fields = ('name', 'slug', 'old_name', )
+    list_display = ('name', 'slug', 'old_name', 'deleted_at', )
     # [field.name for field in Institution._meta.fields if field.name != "id"]
 
     def get_queryset(self, request):
