@@ -11,6 +11,7 @@ def display_institutions(request):
     institutions = Institution.objects.all()
     return render(request, 'display_institutions.html', {'institutions': institutions})
 
+
 @require_http_methods(['DELETE'])
 def delete_institution(request, id):
     Institution.objects.filter(id=id).delete()
