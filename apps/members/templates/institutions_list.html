@@ -1,0 +1,13 @@
+<div id="institutions"
+  hx-confirm="Are you sure you want to delete this task?"
+  hx-target="#institutions"
+  hx-swap="outerHTML">
+  {% for institution in institutions %}
+    <div>{{ forloop.counter }} {{ institution.name }}
+      <a class="block mr-2 hover:text-gray-600"
+        hx-delete="{% url 'delete_institution' institution.id %}">
+        Delete?
+      </a>
+    </div>
+  {% endfor %}
+</div>
