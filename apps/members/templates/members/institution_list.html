@@ -15,20 +15,20 @@
             <div class="input-group-prepend">
               <div class="input-group-text"><i class="fas fa-search"></i></div>
             </div>
-            <input name="name" class="form-control" id="id_name" placeholder="Search Institution Lists">
+            <input name="name" class="form-control" id="id_name" placeholder="Search Institution">
           </div>
         </div>
-        <div class="col pt-2">
-          {% for choice in filterset.form.completeness.field.choices %}
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio"
-                   name="completeness" id="id_completeness_{{ forloop.counter }}"
-              value="{{ choice.0 }}" {% ifequal forloop.counter 1 %}checked{% endifequal %}>
-            <label class="form-check-label"
-                   for="id_completeness_{{ forloop.counter }}">{{ choice.1 }}</label>
-          </div>
-          {% endfor %}
-        </div>
+{#        <div class="col pt-2">#}
+{#          {% for choice in filterset.form.completeness.field.choices %}#}
+{#          <div class="form-check form-check-inline">#}
+{#            <input class="form-check-input" type="radio"#}
+{#                   name="completeness" id="id_completeness_{{ forloop.counter }}"#}
+{#              value="{{ choice.0 }}" {% ifequal forloop.counter 1 %}checked{% endifequal %}>#}
+{#            <label class="form-check-label"#}
+{#                   for="id_completeness_{{ forloop.counter }}">{{ choice.1 }}</label>#}
+{#          </div>#}
+{#          {% endfor %}#}
+{#        </div>#}
       </div>
 
     </form>
@@ -41,7 +41,7 @@
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
       <i class="fas fa-plus"></i>
-      Create Institution List
+      Create Institution
     </button>
 
     <!-- Modal -->
@@ -50,7 +50,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header border-0 pb-0">
-            <h5 class="modal-title" id="createModalLabel">Create Institution List</h5>
+            <h5 class="modal-title" id="createModalLabel">Create Institution</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -61,12 +61,14 @@
         </div>
       </div>
     </div>
+
   </div>
+
 </div>
 
-{#<div id="tasklist-table">#}
-{#  {% include "tasks/tasklist_filter.html" with object_list=object_list %}#}
-{#</div>#}
+<div id="institutions-table">
+  {% include "members/institutions_filter.html" with object_list=object_list %}
+</div>
 
 {% endblock %}
 

@@ -8,7 +8,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views.decorators.http import require_http_methods
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django_filters.views import FilterView
 
 from apps.members.filters import InstitutionFilter
@@ -35,12 +35,16 @@ class InstitutionCreateView(CreateView):
     template_name = "members/institution_create_form.html"
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
-        task_list = form.save()
+        institution = form.save()
         response = HttpResponse()
         response["HX-Trigger"] = json.dumps(
-            {"redirect": {"url": task_list.get_absolute_url()}}
+            {"redirect": {"url": institution.get_absolute_url()}}
         )
         return response
+
+
+class InstitutionDetailView(DetailView):
+    model = Institution
 
 
 def display_institutions(request):
